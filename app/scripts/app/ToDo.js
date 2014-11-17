@@ -8,18 +8,23 @@ $(window).bind('firebase.connected', function(event, userID) {
 
     var ref = new Firebase('https://whitelist.firebaseio.com/' + userID + '/items');
 
+    // fires whenever a todo is added to firebase
+    //    also fires during startup. adds all existing todos to the ul#list
     ref.on('child_added', function(snapshot) {
         var data = snapshot.val();
         data.id = snapshot.key();
         drawNewItem(data);
     });
 
+    // fires whenever a todo is removed
     ref.on('child_removed', function(snapshot) {
         $('#' + snapshot.key()).fadeOut(function() {
             $(this).remove();
         });
     });
 
+    // fires whenever a todo is modified
+    //    firebase does not specify what was changed, just that the todo was changed :(
     ref.on('child_changed', function(snapshot) {
         var data = snapshot.val();
         var element = $('#' + snapshot.key());
@@ -41,11 +46,12 @@ $(window).bind('firebase.connected', function(event, userID) {
         }
     });
 
+    // create new todo that came from firebase and add to ul#list
     function drawNewItem(data) {
         var i = new ToDo(false, true, data);
 
-        console.log(i.text);
-
+        // determine where to insert the new todo
+        //   completed items at the bottom of the list
         if ($('#list li.completed').length <= 0) {
             $(i.template).appendTo('#list').fadeIn();
         }
@@ -57,6 +63,10 @@ $(window).bind('firebase.connected', function(event, userID) {
         }
     }
 
+    // ToDo item. can be created from input box or connected session via firebase
+    //   save: does this todo need to be saved to firebase?
+    //   bind: does this todo need to event handlers bound to it?
+    //   options: overrides for default values. at minimun, is text node
     ToDo = function(save, bind, options) {
 
         var self = this;
@@ -79,6 +89,7 @@ $(window).bind('firebase.connected', function(event, userID) {
         }
     };
 
+    // set text and update in firebase
     ToDo.prototype.setText = function(text) {
         var self = this;
 
@@ -87,6 +98,7 @@ $(window).bind('firebase.connected', function(event, userID) {
         updateRef.update({text: self.text});
     };
 
+    // mark as completed/uncompleted, update UI, and save in firebase
     ToDo.prototype.complete = function(event) {
         var self = this;
 
@@ -109,6 +121,8 @@ $(window).bind('firebase.connected', function(event, userID) {
         updateRef.update({completed: self.completed});
     };
 
+    // bind click and change events to item to determine if the text has changed,
+    //    it has been completed, or if it has been deleted
     ToDo.prototype.bindEvents = function() {
         var self = this;
 
@@ -134,5 +148,4 @@ $(window).bind('firebase.connected', function(event, userID) {
             removeRef.remove();
         });
     };
-
 });
