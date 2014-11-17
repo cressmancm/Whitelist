@@ -22,4 +22,8 @@ input {
     @include placeholder {
         color: $color-secondary;
     }
+
+    &#add {
+        padding-left: 10px;
+    }
 }

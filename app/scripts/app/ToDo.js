@@ -31,16 +31,28 @@ $(window).bind('firebase.connected', function(event, userID) {
             $(element).addClass('completed');
             $(element).find('.complete .fa').removeClass('fa-square-o');
             $(element).find('.complete .fa').addClass('fa-check-square-o');
+            $(element).insertAfter($('#list li:not(".completed"):last'));
+
         } else{
             $(element).removeClass('completed');
             $(element).find('.complete .fa').addClass('fa-square-o');
             $(element).find('.complete .fa').removeClass('fa-check-square-o');
+            $(element).insertBefore($('#list li.completed:first'));
         }
     });
 
     function drawNewItem(data) {
         var i = new ToDo(false, true, data);
-        $(i.template).appendTo('#list').fadeIn();
+
+        if ($('#list li').length <= 0) {
+            $(i.template).appendTo('#list');
+        }
+        else if (i.completed) {
+            $(i.template).insertAfter($('#list li:not(".completed"):last')).fadeIn();
+        }
+        else {
+            $(i.template).insertBefore($('#list li.completed:first')).fadeIn();
+        }
     }
 
     ToDo = function(save, bind, options) {
