@@ -11,11 +11,18 @@ Visit [whitelist.cressmancm.com](whitelist.cressmancm.com) for a demo.
 To run this app locally from the source files, you need [bower](http://bower.io/) and [gulp](http://gulpjs.com/). Once installed, open the directory in Terminal and run the following:
 
 ```
-gulp serve
+npm install
+bower install
+
 ```
 
-This will start a local server and open the app in the browser.
+#View Locally
 
+To start the built in preview server, run the following:
+
+```
+gulp serve
+```
 
 
 #Distribution Build
@@ -38,4 +45,6 @@ This will compile all the SCSS, prefix all CSS, lint the scripts, optimize the i
 
 #Fun
 
-Open the app in two different devices and change the background, edit, complete, and delete todos :)
+Open the app in two different devices and change the background, edit, complete, and delete todos. Also, on mobile, save the page to your home screen.
+
+Enjoy :]
