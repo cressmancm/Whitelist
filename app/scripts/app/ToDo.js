@@ -44,8 +44,10 @@ $(window).bind('firebase.connected', function(event, userID) {
     function drawNewItem(data) {
         var i = new ToDo(false, true, data);
 
-        if ($('#list li').length <= 0) {
-            $(i.template).appendTo('#list');
+        console.log(i.text);
+
+        if ($('#list li.completed').length <= 0) {
+            $(i.template).appendTo('#list').fadeIn();
         }
         else if (i.completed) {
             $(i.template).insertAfter($('#list li:not(".completed"):last')).fadeIn();
