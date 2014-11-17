@@ -4,7 +4,7 @@ Whitelist
 
 whitelist is a free, easy to use, to do list by chip cressman
 
-Visit [whitelist.cressmancm.com](whitelist.cressmancm.com) for a demo.
+Visit [whitelist.cressmancm.com](http://whitelist.cressmancm.com) for a demo.
 
 #Install
 
@@ -13,7 +13,6 @@ To run this app locally from the source files, you need [bower](http://bower.io/
 ```
 npm install
 bower install
-
 ```
 
 #View Locally
@@ -42,6 +41,9 @@ gulp
 
 This will compile all the SCSS, prefix all CSS, lint the scripts, optimize the images, minify and concat all scripts/styles, add all the Bower dependencies, and create a dist folder ready for deployment.
 
+#Thanks
+
+Thanks to [Subtle Patterns](http://subtlepatterns.com/) for their awesome backgrounds!
 
 #Fun
 
