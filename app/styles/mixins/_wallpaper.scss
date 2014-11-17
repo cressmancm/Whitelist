@@ -1,0 +1,13 @@
+/* Wallpaper
+---------------------------------------------------------------------- */
+
+@mixin wallpaper($names...) {
+
+    @each $name in $names {
+
+        .#{$name} {
+            background: url('/images/#{$name}.png') repeat repeat;
+        }
+
+    }
+}

@@ -1,0 +1,56 @@
+/* Items
+---------------------------------------------------------------------- */
+
+.item {
+    display: none;
+    margin-bottom: 8px;
+    position: relative;
+
+    .complete, .remove {
+        left: 0;bottom: 0;
+        margin: auto;
+        position: absolute;
+        top: 0;
+        width: auto;
+
+        &.remove {
+            color: red;
+            display: none;
+            left: auto;
+            right: 0;
+        }
+
+        .fa {
+            font-size: 22px;
+            line-height: 47px;
+            padding: 0 12px;
+
+            &.fa-check-square-o {
+                color: $color-secondary;
+                padding-right: 9px;
+            }
+        }
+    }
+
+    &.completed {
+        input {
+            text-decoration: line-through;
+        }
+    }
+
+
+
+    &:hover {
+        cursor: pointer;
+
+        .remove {
+            display: block;
+        }
+    }
+}
+
+.touch .remove {
+
+        display: block !important;
+
+}

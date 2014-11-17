@@ -1,0 +1,40 @@
+/* Buttons
+---------------------------------------------------------------------- */
+
+.btn {
+    background: $color-background;
+    border-radius: $border-radius;
+    border: 1px solid $color-border;
+    color: $color-link;
+    line-height: 32px;
+    margin: 10px auto;
+    padding: 8px 12px 8px 44px;
+    position: relative;
+
+    .fa {
+        display: block;
+        font-size: 28px;
+        left: 12px;
+        line-height: 32px;
+        margin: auto;
+        position: absolute;
+    }
+
+    &:active, &:hover  {
+        @include background(darken($color-background, 10%));
+    }
+
+    &.facebook {
+        background: #2D4373;
+        border-color: #23355B;
+        color: #FFF;
+
+        .fa {
+            color: #FFF;
+        }
+
+        &:active, &:hover  {
+            @include background(darken(#2D4373, 10%));
+        }
+    }
+}

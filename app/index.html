@@ -1,0 +1,119 @@
+<!doctype html>
+<html class="no-js">
+    <head>
+        <meta charset="utf-8">
+        <title>whitelist</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+
+        <link rel="apple-touch-icon-precomposed" sizes="57x57" href="/apple-touch-icon-57x57.png" />
+        <link rel="apple-touch-icon-precomposed" sizes="114x114" href="/apple-touch-icon-114x114.png" />
+        <link rel="apple-touch-icon-precomposed" sizes="72x72" href="/apple-touch-icon-72x72.png" />
+        <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/apple-touch-icon-144x144.png" />
+        <link rel="apple-touch-icon-precomposed" sizes="60x60" href="/apple-touch-icon-60x60.png" />
+        <link rel="apple-touch-icon-precomposed" sizes="120x120" href="/apple-touch-icon-120x120.png" />
+        <link rel="apple-touch-icon-precomposed" sizes="76x76" href="/apple-touch-icon-76x76.png" />
+        <link rel="apple-touch-icon-precomposed" sizes="152x152" href="/apple-touch-icon-152x152.png" />
+        <link rel="icon" type="image/png" href="/favicon-196x196.png" sizes="196x196" />
+        <link rel="icon" type="image/png" href="/favicon-96x96.png" sizes="96x96" />
+        <link rel="icon" type="image/png" href="/favicon-32x32.png" sizes="32x32" />
+        <link rel="icon" type="image/png" href="/favicon-16x16.png" sizes="16x16" />
+        <link rel="icon" type="image/png" href="/favicon-128.png" sizes="128x128" />
+        <meta name="application-name" content="whitelist"/>
+        <meta name="msapplication-TileColor" content="#FFFFFF" />
+        <meta name="msapplication-TileImage" content="/mstile-144x144.png" />
+        <meta name="msapplication-square70x70logo" content="/mstile-70x70.png" />
+        <meta name="msapplication-square150x150logo" content="/mstile-150x150.png" />
+        <meta name="msapplication-wide310x150logo" content="/mstile-310x150.png" />
+        <meta name="msapplication-square310x310logo" content="/mstile-310x310.png" />
+
+
+        <!-- build:css styles/vendor.css -->
+        <!-- bower:css -->
+        <link rel="stylesheet" href="bower_components/fontawesome/css/font-awesome.css" />
+        <!-- endbower -->
+        <!-- endbuild -->
+
+        <!-- build:css styles/main.css -->
+        <link rel="stylesheet" href="styles/main.css">
+        <!-- endbuild -->
+
+        <!-- build:js scripts/vendor/modernizr.js -->
+        <script src="bower_components/modernizr/modernizr.js"></script>
+        <!-- endbuild -->
+    </head>
+    <body>
+        <!--[if lt IE 10]>
+            <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+        <![endif]-->
+
+        <div class="wrapper">
+
+            <div id="settings" class="fa fa-cog"></div>
+
+            <div id="settingsPanel">
+                <button id="signOut" class="btn"><i class="fa fa-sign-out"></i>Sign out</button>
+
+                <ul id="backgrounds">
+                    <li class="brickwall"></li>
+                    <li class="cream_pixels"></li>
+                    <li class="crossword"></li>
+                    <li class="dimension"></li>
+                    <li class="greyzz"></li>
+                    <li class="ps_neutral"></li>
+                    <li class="pw_pattern"></li>
+                    <li class="tree_bark"></li>
+                    <li class="wet_snow"></li>
+                </ul>
+            </div>
+
+            <h1>whitelist</h1>
+
+            <input id="add" type="text" name="" value="" placeholder="Add a new to-do">
+
+            <ul id="list"></ul>
+
+            <p id="intro">whitelist is a free, easy to use, to do list manager by chip cressman</p>
+
+            <button id="signIn" class="btn facebook"><i class="fa fa-facebook"></i>Sign in with Facebook</button>
+
+        </div>
+
+
+        <!-- build:js scripts/vendor.js -->
+        <!-- bower:js -->
+        <script src="bower_components/jquery/dist/jquery.js"></script>
+        <script src="bower_components/simpleStorage/simpleStorage.js"></script>
+        <script src="bower_components/handlebars/handlebars.js"></script>
+        <script src="bower_components/firebase/firebase.js"></script>
+        <script src="bower_components/underscore/underscore.js"></script>
+        <!-- endbower -->
+        <!-- endbuild -->
+
+        <!-- build:js scripts/main.js -->
+        <script src="scripts/app/account.js"></script>
+        <script src="scripts/app/background.js"></script>
+        <script src="scripts/app/settings.js"></script>
+        <script src="scripts/app/ToDo.js"></script>
+        <script src="scripts/main.js"></script>
+        <!-- endbuild -->
+
+        <script id="template-item" type="text/x-handlebars-template">
+            <li class="item {{#if completed}}completed{{/if}}" id="{{id}}">
+                <input type="text" value="{{text}}" />
+                <div class="complete">
+                    {{#if completed}}
+                        <i class="fa fa-check-square-o"></i>
+                    {{else}}
+                        <i class="fa fa-square-o"></i>
+                    {{/if}}
+                </div>
+                <div class="remove">
+                    <i class="fa fa-trash-o"></i>
+                </div>
+
+            </li>
+        </script>
+</body>
+</html>

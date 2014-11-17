@@ -1,0 +1,56 @@
+/* Elements
+---------------------------------------------------------------------- */
+
+body {
+    background: url('../images/brickwall.png') repeat repeat;
+    text-align: center;
+}
+
+.wrapper {
+    padding: 40px 3% 0;
+    text-align: center;
+}
+
+#add {
+    display: none;
+}
+
+#list {
+    display: none;
+    list-style: none;
+    padding: 0;
+    text-align: left;
+    width: 100%;
+}
+
+#settings {
+    display: none;
+    cursor: pointer;
+    font-size: 27px;
+    position: absolute;
+    right: 10px;
+    top: 10px;
+}
+
+#settingsPanel {
+    background: rgba(0,0,0,0.2);
+    border-radius: $border-radius;
+    box-sizing: border-box;
+    display: none;
+    padding: 10px 0;
+
+    #backgrounds {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+
+        li {
+            border-radius: $border-radius;
+            border: 1px solid $color-border;
+            cursor: pointer;
+            display: inline-block;
+            height: 50px;
+            width: 30%;
+        }
+    }
+}
