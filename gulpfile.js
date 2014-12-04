@@ -76,7 +76,7 @@ gulp.task('clear', function (done) {
 
 gulp.task('build', ['html', 'images', 'fonts', 'extras']);
 
-gulp.task('default', ['clean'], function () {
+gulp.task('default', ['clear', 'clean'], function () {
     gulp.start('build');
 });
 
